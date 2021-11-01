@@ -1,0 +1,14 @@
+.post {
+  border-radius: "5%";
+  background-color: "white";
+}
+
+.post-header {
+  background-color: "orange";
+}
+
+.post-msg {
+  display: block;
+  background-color: "orange";
+  border-radius: "2%";
+}
