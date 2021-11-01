@@ -1,14 +1,24 @@
 .post {
-  border-radius: "5%";
-  background-color: "white";
+  background-color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  margin-bottom: 50px
+
 }
 
-.post-header {
-  background-color: "orange";
-}
+
+
+/* .post-header {
+  background-color: whitesmoke;
+} */
 
 .post-msg {
   display: block;
-  background-color: "orange";
-  border-radius: "2%";
+}
+
+.post-msg > div:empty {
+  display: none;
+}
+
+.hor-div > div:empty {
+  display: none;
 }

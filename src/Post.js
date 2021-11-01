@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useGobalContext } from "./context";
 import Agreement from "./Agreement";
 import SendPost from "./SendPost";
-import { doc, updateDoc, serverTimestamp, toDate } from "firebase/firestore";
+//import { doc, updateDoc, serverTimestamp, toDate } from "firebase/firestore";
 
 const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
   const { openModal } = useGobalContext();
@@ -14,7 +14,7 @@ const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
   const [reviewAgreement, setReviewAgreement] = useState(false);
   const [intiReviewAgreement, setIntiReviewAgreement] = useState(false);
   const [toggle, setToggle] = useState(true);
-  const [displayDate, setDisplayDate] = useState(0);
+  //const [displayDate, setDisplayDate] = useState(0);
   //const [displayDateTime, setDisplayDateTime] = useState();
   const months = [
     "Jan",
@@ -90,19 +90,13 @@ const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
   return (
     <div
       className="post"
-      style={{
-        backgroundColor: "white",
-        borderRadius: "0%",
-        boxShadow: "0 3px 10px rgb(0 0 0 / 0.2)",
-        marginBottom: "50px"
-      }}
     >
       <div
         // style={{
         //   display: "flex",
         //   margin: "0%",
         //   justifyContent: "space-evenly",
-        //   backgroundColor: ""
+        //   backgroundColor: "var(--clr-grey-5)"
         // }}
         className="post-header"
       >
@@ -129,9 +123,8 @@ const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
           <div
             key={id + 1}
             className="post-msg"
-            // style={{ display: "block", backgroundColor: "white", borderRadius: "2%" }}
           >
-            <div style={{ display: "flex", margin: "2%", marginBottom: "0" }}>
+            <div className="hor-div" style={{ display: "flex", margin: "2%", marginBottom: "0" }}>
               {show && (
                 <input
                   style={{ margin: "2%", marginTop: "6%" }}
@@ -156,15 +149,15 @@ const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
                 height="50"
                 style={{ margin: "2%" }}
               />
-              <div
-                style={{
+              {message && <div style={{
                   backgroundColor: "var(--clr-grey-10)",
-                  borderRadius: "28%",
-                  borderLeft: "10%"
+                  borderRadius: "8%",
+                  borderLeft: "10%",
+                  paddingRight: "20px",
+                  paddingLeft: "5px"
                 }}
               >
-                <p
-                  style={{
+                <p style={{
                     textAlign: "left",
                     marginLeft: "2%",
                     padding: "2% 10%",
@@ -173,7 +166,7 @@ const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
                 >
                   {message}
                 </p>
-              </div>
+              </div>}
 
               {type === "agreement" && (
                 <p style={{ textAlign: "left", marginLeft: "2%" }}>
@@ -224,7 +217,7 @@ const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
               />
             )}
 
-            <p style={{ color: "lightgrey", fontSize: "75%", marginTop: "0" }}>
+            <p style={{ color: "lightgrey", fontSize: "75%", marginTop: "0", marginBottom: "4%" }}>
               {handleDisplayDateTime(timestamp)}
             </p>
           </div>
