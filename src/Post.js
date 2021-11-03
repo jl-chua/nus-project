@@ -88,9 +88,7 @@ const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
   };
 
   return (
-    <div
-      className="post"
-    >
+    <div className="post">
       <div
         // style={{
         //   display: "flex",
@@ -116,15 +114,16 @@ const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
           sign1Status,
           sign2Id,
           sign2Status,
-          timestamp
+          timestamp,
+          agreementImgs
         } = post;
 
         return (
-          <div
-            key={id + 1}
-            className="post-msg"
-          >
-            <div className="hor-div" style={{ display: "flex", margin: "2%", marginBottom: "0" }}>
+          <div key={id + 1} className="post-msg">
+            <div
+              className="hor-div"
+              style={{ display: "flex", margin: "2%", marginBottom: "0" }}
+            >
               {show && (
                 <input
                   style={{ margin: "2%", marginTop: "6%" }}
@@ -149,24 +148,28 @@ const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
                 height="50"
                 style={{ margin: "2%" }}
               />
-              {message && <div style={{
-                  backgroundColor: "var(--clr-grey-10)",
-                  borderRadius: "8%",
-                  borderLeft: "10%",
-                  paddingRight: "20px",
-                  paddingLeft: "5px"
-                }}
-              >
-                <p style={{
-                    textAlign: "left",
-                    marginLeft: "2%",
-                    padding: "2% 10%",
-                    marginBottom: "0"
+              {message && (
+                <div
+                  style={{
+                    backgroundColor: "var(--clr-grey-10)",
+                    borderRadius: "8%",
+                    borderLeft: "10%",
+                    paddingRight: "20px",
+                    paddingLeft: "5px"
                   }}
                 >
-                  {message}
-                </p>
-              </div>}
+                  <p
+                    style={{
+                      textAlign: "left",
+                      marginLeft: "2%",
+                      padding: "2% 10%",
+                      marginBottom: "0"
+                    }}
+                  >
+                    {message}
+                  </p>
+                </div>
+              )}
 
               {type === "agreement" && (
                 <p style={{ textAlign: "left", marginLeft: "2%" }}>
@@ -217,7 +220,28 @@ const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
               />
             )}
 
-            <p style={{ color: "lightgrey", fontSize: "75%", marginTop: "0", marginBottom: "4%" }}>
+            {type === "agreement" &&
+              agreementImgs !== undefined &&
+              agreementImgs.map((url, index) => {
+                return (
+                  <img
+                    src={url}
+                    key={index}
+                    alt="agreementImgs"
+                    width="200"
+                    style={{ margin: "2% 0% 0% 0%", alignItems: "left" }}
+                  />
+                );
+              })}
+
+            <p
+              style={{
+                color: "lightgrey",
+                fontSize: "75%",
+                marginTop: "0",
+                marginBottom: "4%"
+              }}
+            >
               {handleDisplayDateTime(timestamp)}
             </p>
           </div>

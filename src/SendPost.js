@@ -13,7 +13,7 @@ import writePost from "./writePost";
 
 const SendPost = ({ currentUserName, currentUserProfilePic }) => {
   const inputRef = useRef(null);
-  const chosenFile = useRef(null);
+  const chosenFile = useRef("");
   const [image, setImage] = useState(null);
   const storage = getStorage();
 
@@ -76,7 +76,9 @@ const SendPost = ({ currentUserName, currentUserProfilePic }) => {
 
       <div className="inputIcon">
         <input type="file" ref={chosenFile} onChange={handleChange} />
-        <button onClick={cancelImage}>Cancel Image Chosen</button>
+        {chosenFile.current.value !== "" && (
+          <button onClick={cancelImage}>Cancel Image Chosen</button>
+        )}
       </div>
     </div>
   );

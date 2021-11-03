@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-//import Button from "react-bootstrap/Button";
+import Button from "react-bootstrap/Button";
 import usersData from "./users";
 import db from "./firebase";
 import {
@@ -8,10 +8,11 @@ import {
   onSnapshot,
   query,
   orderBy,
-  //toDate
+  toDate
 } from "firebase/firestore";
 import Post from "./Post";
 import ChangeUser from "./ChangeUser";
+import collectionName from "./collectionName";
 
 function App() {
   const [users] = useState(usersData);
@@ -24,7 +25,7 @@ function App() {
 
   // get  real-time db from firestore - https://cloud.google.com/firestore/docs/query-data/listen
   useEffect(() => {
-    const q = query(collection(db, "demo"), orderBy("timestamp"));
+    const q = query(collection(db, collectionName), orderBy("timestamp"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       setPosts(
         querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))

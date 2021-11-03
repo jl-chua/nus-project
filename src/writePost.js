@@ -8,6 +8,7 @@ import {
   getDownloadURL
 } from "firebase/storage";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import collectionName from "./collectionName";
 
 const writePost = (
   currentType,
@@ -40,7 +41,7 @@ const writePost = (
   if (!currentMsg && !currentImg) return;
   if (!currentImg) {
     console.log("running no image");
-    const docRef = addDoc(collection(db, "demo"), {
+    const docRef = addDoc(collection(db, collectionName), {
       type: currentType,
       message: currentMsg,
       name: currentUserName,
@@ -87,7 +88,7 @@ const writePost = (
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
-          const docRef = addDoc(collection(db, "demo"), {
+          const docRef = addDoc(collection(db, collectionName), {
             type: currentType,
             message: currentMsg,
             name: currentUserName,
