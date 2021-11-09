@@ -1,7 +1,7 @@
 .agreement {
   text-align: center;
   margin-bottom: 5px;
-  background-color: rgb(235, 240, 250);
+  background-color: rgb(223, 238, 196);
   align-items: center;
 }
 
@@ -62,6 +62,10 @@
   box-shadow: 5px 5px 5px green;
 }
 
+.image:focus {
+  box-shadow: 5px 5px 5px red;
+}
+
 .step {
   background-color: rgb(245, 245, 245);
   border-color: transparent;
@@ -101,4 +105,4 @@
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
   box-shadow: 5px 5px 5px green;
-}
+} 
