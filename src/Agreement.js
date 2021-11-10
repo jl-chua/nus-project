@@ -203,7 +203,7 @@ function Agreement({
   return (
     <div className={`${show ? "agreement" : ""}`}>
       <button className="agreement-btn" onClick={toggleAgreement}>
-        agreement
+        Agreement
       </button>{" "}
       <br />
       <br />
@@ -211,13 +211,13 @@ function Agreement({
       {show && (
         <div>
           <button className="step" onClick={handleStep1}>
-            step 1
+            Step 1
           </button>
           <button className="step" onClick={handleStep2}>
-            step 2
+            Step 2
           </button>
           <button className="step" onClick={handleStep3}>
-            step 3
+            Step 3
           </button>
         </div>
       )}
@@ -233,7 +233,7 @@ function Agreement({
               <br />
               <textarea
                 name="message"
-                rows="6"
+                rows="10"
                 required
                 autoComplete="off"
                 ref={inputRef}
@@ -269,7 +269,7 @@ function Agreement({
                       key={index}
                       alt="user selected"
                       height="50"
-                      style={{ margin: "10px" }}
+                      style={{ margin: "7px" }}
                     />
                   </div>
                 );
@@ -307,7 +307,6 @@ function Agreement({
                         style={{
                           textAlign: "left",
                           margin: "3%",
-                          backgroundColor: "white",
                           padding: "1px",
                           borderRadius: "4px"
                         }}
@@ -366,14 +365,14 @@ function Agreement({
           <button
             className="prev-next"
             style={{
-              backgroundColor: "rgb(250, 240, 205)",
-              border: "5px",
-              borderColor: "rgb(209 183 100)"
+              backgroundColor: "white",
+              border: "7px",
+              borderColor: "blue"
             }}
             type="submit"
             form="form1"
           >
-            send
+            Send
           </button>
           <form method="get" id="form1" onSubmit={submitAgreement} />
         </div>

@@ -1,7 +1,7 @@
 .agreement {
   text-align: center;
   margin-bottom: 5px;
-  background-color: rgb(223, 238, 196);
+  background-color: rgb(250, 251, 249);
   align-items: center;
 }
 
@@ -13,17 +13,16 @@
 
 .agreement-btn {
   margin-top: 1rem;
-  color: black;
+  color: white;
   font: ubuntu;
   margin-top: 1rem;
   padding: 5px 10px;
-  background-color: rgba(14, 255, 6, 0.61);
-  border-radius: 10px;
+  background-color: #1762a7;
+  border-radius: 7px;
 }
 
 .agreement-btn:hover {
-  box-shadow: 0 3px 6px black;
-  background-color: rgba(14, 255, 6, 0.61);
+  background-color: #b3becae8;
 }
 
 .agreement-btn:active {
@@ -56,10 +55,14 @@
   transform: translateY(-3px);
 }
 
+.image-container:focus {
+  transform: translateY(-10px);
+}
 .image:active {
   -webkit-transform: scale(1.4);
   transform: scale(1.4);
   box-shadow: 5px 5px 5px green;
+  opacity: 1;
 }
 
 .image:focus {
@@ -82,27 +85,22 @@
 }
 
 .prev-next {
-  background-color: rgb(241, 242, 244);
-  border-color: transparent;
-  background-color: rgb(236, 186, 92);
+  color: #1762a7;
+  background-color: #fbf9f9;
+  border-color: #1762a7;
   position: relative;
   top: 1rem;
   /* padding: 5px; */
   cursor: pointer;
-  width: 70px;
+  width: 100px;
   height: 30px;
   /* text-align: center; */
   margin: 5px;
-  margin-bottom: 25px;
-  border-radius: 9%;
-}
-.prev-next:hover {
-  box-shadow: 0 3px 6px black;
-  background-color: rgba(14, 255, 6, 0.61);
+  margin-bottom: 30px;
 }
 
 .prev-next:active {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
-  box-shadow: 5px 5px 5px green;
-} 
+  box-shadow: 5px 5px 5px greez;
+}
