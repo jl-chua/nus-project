@@ -4,7 +4,8 @@ Variables
 ===============
 */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
-</style > :root {
+
+:root {
   /* dark shades of primary color*/
   --clr-primary-1: hsl(205, 86%, 17%);
   --clr-primary-2: hsl(205, 77%, 27%);
@@ -50,9 +51,10 @@ button {
   font: inherit;
   color: rgb(249, 250, 246);
   cursor: pointer;
-  background-color: #1762a7;
+  background-color: #5e5ce6;
   border-color: transparent;
-  border-radius: 7px;
+  border-radius: 50px;
+  width: 150px;
 }
 
 button:focus {
@@ -67,8 +69,6 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 10;
   font-size: 13px;
-
-  /*color: white;*/
 }
 
 .changeuser {
@@ -78,13 +78,13 @@ body {
 .App-container {
   display: flex;
   justify-content: center;
-  background-color: rgb(223, 243, 235);
+  background-color: #27272b;
 }
 .App {
   text-align: center;
-  width: 425px;
+  width: 385px;
   display: flexbox;
-  background-color: rgb(208, 204, 211);
+  background-color: #e5e5e5;
 }
 
 .App-logo {

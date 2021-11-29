@@ -1,7 +1,8 @@
 .agreement {
   text-align: center;
+  color: white;
   margin-bottom: 5px;
-  background-color: rgb(250, 251, 249);
+  background-color: #1c1c1e;
   align-items: center;
 }
 
@@ -17,8 +18,9 @@
   font: ubuntu;
   margin-top: 1rem;
   padding: 5px 10px;
-  background-color: #1762a7;
-  border-radius: 7px;
+  background-color: #5e5ce6;
+  border-radius: 50px;
+  width: 180px;
 }
 
 .agreement-btn:hover {
@@ -66,33 +68,75 @@
 }
 
 .image:focus {
-  box-shadow: 5px 5px 5px red;
+  box-shadow: 5px 5px 5px grey;
 }
 
 .step {
-  background-color: rgb(245, 245, 245);
   border-color: transparent;
-  background-color: rgb(238, 182, 30);
+  background-color: #bf5af2;
   margin: 5px;
-  border-radius: 9%;
+  border-radius: 50px;
   cursor: pointer;
-  width: 70px;
-  height: 30px;
+  width: 115px;
+  height: 20px;
+  font-size: 10px;
+  padding-bottom: 18px;
+  padding-top: 4px;
 }
 
-.step:focus {
-  color: red;
+.step:hover {
+  /*.step:focus {*/
+  background-color: #bf5af2;
+  /*background-color: #b3becae8;*/
 }
 
-.prev-next {
-  color: #1762a7;
+.active-step {
+  border-color: transparent;
+  background-color: #d40ceee8;
+  margin: 5px;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 115px;
+  height: 20px;
+  font-size: 10px;
+  padding-bottom: 18px;
+  padding-top: 4px;
+}
+
+.active-step:hover {
+  /*.step:focus {*/
+  background-color: #d40ceee8;
+  /*background-color: #b3becae8;*/
+}
+
+.prev {
+  color: #5e5ce6;
   background-color: #fbf9f9;
-  border-color: #1762a7;
+  border-color: #5e5ce6;
+  border-width: 1px;
+  position: relative;
+  border-radius: 50px;
+  top: 1rem;
+  /* padding: 5px; */
+  cursor: pointer;
+  width: 150px;
+  height: 30px;
+  /* text-align: center; */
+  margin: 5px;
+  margin-bottom: 30px;
+}
+
+.next {
+  color: #fbf9f9;
+  background-color: #5e5ce6;
+  /*border-color: #bf5af2; */
+  border-width: 1px;
   position: relative;
   top: 1rem;
   /* padding: 5px; */
   cursor: pointer;
-  width: 100px;
+  border-radius: 50px;
+  width: 150px;
   height: 30px;
   /* text-align: center; */
   margin: 5px;

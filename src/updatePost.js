@@ -14,10 +14,18 @@ import {
 
 import { doc, updateDoc, serverTimestamp } from "firebase/firestore";
 
-const updatePost = (currentId, currentSign1Status, currentSign2Status) => {
+const updatePost = (
+  currentId,
+  currentSign1Status,
+  currentSign2Status,
+  currentTimestamp,
+  currentTransactionHash
+) => {
   const docRef = updateDoc(doc(db, collectionName, currentId), {
     sign1Status: currentSign1Status,
-    sign2Status: currentSign2Status
+    sign2Status: currentSign2Status,
+    timestamp: currentTimestamp,
+    transactionHash: currentTransactionHash
   });
 };
 

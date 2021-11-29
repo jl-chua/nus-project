@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Cea from "./Cea";
+import "./UseTemplates.css";
 
 function UseTemplates() {
   const [show, setShow] = useState(true);
@@ -12,9 +13,52 @@ function UseTemplates() {
     <div>
       {show && (
         <div style={{ margin: "10%", display: "block" }}>
-          <button onClick={cea}>Lease Agreement by CEA</button>
-          <button>Lease Agreement by ERA</button>
-          <button>Lease Agreement by ProNex</button>
+          <button
+            style={{
+              backgroundColor: "#1c1c1e",
+              borderRadius: "50px",
+              fontSize: "13px",
+              height: "30px",
+              width: "345px",
+              cursor: "pointer",
+              paddingRight: "160px"
+            }}
+            onClick={cea}
+          >
+            A. Lease Agreement by CEA
+          </button>
+          <br />
+          <br />
+          <button
+            style={{
+              backgroundColor: "#1c1c1e",
+              borderRadius: "50px",
+              fontSize: "13px",
+              height: "30px",
+              width: "345px",
+              cursor: "pointer",
+              paddingRight: "160px"
+            }}
+            onClick={cea}
+          >
+            B. Lease Agreement by ERA
+          </button>
+          <br />
+          <br />
+          <button
+            style={{
+              backgroundColor: "#1c1c1e",
+              borderRadius: "50px",
+              fontSize: "13px",
+              height: "30px",
+              width: "345px",
+              cursor: "pointer",
+              paddingRight: "130px"
+            }}
+            onClick={cea}
+          >
+            C. Lease Agreement by PropNex
+          </button>
         </div>
       )}
 

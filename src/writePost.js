@@ -20,7 +20,9 @@ const writePost = (
   currentSign1Status,
   currentSign2Id,
   currentSign2Status,
-  currentAgreementImgs
+  currentAgreementImgs,
+  currentDigitalSignature,
+  currentTransactionHash
 ) => {
   const storage = getStorage();
   console.log("running write post");
@@ -38,6 +40,7 @@ const writePost = (
   //let inputMsg;
   //const sendPost = (e) => {
   //  e.preventDefault();
+  let currentTimestamp = serverTimestamp();
   if (!currentMsg && !currentImg) return;
   if (!currentImg) {
     console.log("running no image");
@@ -50,8 +53,11 @@ const writePost = (
       sign1Status: currentSign1Status,
       sign2Id: currentSign2Id,
       sign2Status: currentSign2Status,
-      timestamp: serverTimestamp(),
-      agreementImgs: currentAgreementImgs
+      timestamp: currentTimestamp,
+      creationTimestamp: currentTimestamp,
+      agreementImgs: currentAgreementImgs,
+      digitalSignature: currentDigitalSignature,
+      transactionHash: null
     });
   } else if (currentImg !== undefined) {
     const storageRef = ref(storage, currentImg.name);
@@ -98,8 +104,11 @@ const writePost = (
             sign1Status: currentSign1Status,
             sign2Id: currentSign2Id,
             sign2Status: currentSign2Status,
-            timestamp: serverTimestamp(),
-            agreementImgs: currentAgreementImgs
+            timestamp: currentTimestamp,
+            creationTimestamp: currentTimestamp,
+            agreementImgs: currentAgreementImgs,
+            digitalSignature: currentDigitalSignature,
+            transactionHash: null
           });
         });
       }

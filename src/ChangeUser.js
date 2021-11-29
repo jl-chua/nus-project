@@ -9,13 +9,13 @@ function ChangeUser({
   let inputNum;
 
   return (
-    <div>
+    <div className="changeuser">
       <div style={{ marginTop: "1rem", boxShadow: "5px 10px #888888t" }}>
         <label>change user by userID - </label>
         <input onChange={(e) => (inputNum = e.target.value)} />
       </div>
 
-      <button onClick={() => handleUserId(inputNum)}> enter </button>
+      <button onClick={() => handleUserId(inputNum)}> Enter </button>
 
       <br />
 

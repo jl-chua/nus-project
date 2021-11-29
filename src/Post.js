@@ -8,7 +8,7 @@ import SendPost from "./SendPost";
 const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
   const { openModal } = useGobalContext();
   const [show, setShow] = useState(false);
-  const [buttonMsg, setButtonMsg] = useState("select Message");
+  const [buttonMsg, setButtonMsg] = useState("Select");
   //const [addToAgreement, setAddToAgreement] = useState([]);
   const [checkboxData, setCheckboxData] = useState([]);
   const [reviewAgreement, setReviewAgreement] = useState(false);
@@ -99,7 +99,7 @@ const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
         className="post-header"
       >
         {show && (
-          <button onClick={handleAddToAgreement}> Add to Agreement</button>
+          <button onClick={handleAddToAgreement}> Add to agreement</button>
         )}
         <button onClick={handleSelectBtn}> {buttonMsg} </button>
       </div>
@@ -115,15 +115,14 @@ const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
           sign2Id,
           sign2Status,
           timestamp,
-          agreementImgs
+          agreementImgs,
+          digitalSignature,
+          transactionHash
         } = post;
 
         return (
           <div key={id + 1} className="post-msg">
-            <div
-              className="hor-div"
-              style={{ display: "flex", margin: "2%", marginBottom: "0" }}
-            >
+            <div className="hor-div">
               {show && (
                 <input
                   style={{ margin: "2%", marginTop: "6%" }}
@@ -142,73 +141,15 @@ const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
                   type="checkbox"
                 />
               )}
+
               <img
                 alt="user"
                 src={avatar}
                 height="50"
                 style={{ margin: "2%" }}
               />
-              {message && (
-                <div
-                  style={{
-                    backgroundColor: "var(--clr-grey-10)",
-                    borderRadius: "8%",
-                    borderLeft: "10%",
-                    paddingRight: "20px",
-                    paddingLeft: "5px"
-                  }}
-                >
-                  <p
-                    style={{
-                      textAlign: "left",
-                      marginLeft: "2%",
-                      padding: "2% 10%",
-                      marginBottom: "0"
-                    }}
-                  >
-                    {message}
-                  </p>
-                </div>
-              )}
 
-              {type === "agreement" && (
-                <p style={{ textAlign: "left", marginLeft: "2%" }}>
-                  <label>
-                    ({sign1Id} {sign1Status})
-                  </label>
-                </p>
-              )}
-
-              {type === "agreement" && (
-                <p style={{ textAlign: "left", marginLeft: "2%" }}>
-                  <label>
-                    ({sign2Id} {sign2Status})
-                  </label>
-                </p>
-              )}
-
-              {type === "agreement" &&
-                ((sign1Id === currentUserName && sign1Status === "Pending") ||
-                  (sign2Id === currentUserName && sign2Status === "Pending")) &&
-                sign1Status !== "Rejected" &&
-                sign2Status !== "Rejected" && (
-                  <p style={{ textAlign: "left", marginLeft: "2%" }}>
-                    <button
-                      onClick={() =>
-                        handleReview([
-                          message,
-                          sign1Id,
-                          sign1Status,
-                          sign2Id,
-                          sign2Status,
-                          id
-                        ])
-                      }
-                    >
-                      Review Agreement
-                    </button>
-                  </p>
-                )}
+              {message && <div className="post-text">{message}</div>}
             </div>
 
             {imageURL !== undefined && (
@@ -233,6 +174,58 @@ const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
                   />
                 );
               })}
+
+            {type === "agreement" && (
+              <p>
+                <label
+                  style={{
+                    color: "#3a3a3c",
+                    fontSize: "10px"
+                  }}
+                >
+                  ( {sign1Id} {sign1Status} ) ( {sign2Id} {sign2Status} )
+                </label>{" "}
+                {((sign1Id === currentUserName && sign1Status === "Pending") ||
+                  (sign2Id === currentUserName && sign2Status === "Pending")) &&
+                  sign1Status !== "Rejected" &&
+                  sign2Status !== "Rejected" && (
+                    <button
+                      style={{
+                        backgroundColor: "#5e5ce6",
+                        borderRadius: "50px",
+                        fontSize: "10px",
+                        height: "8px",
+                        width: "90px",
+                        cursor: "pointer",
+                        paddingBottom: "16px",
+                        paddingTop: "2px",
+                        marginLeft: "30px"
+                      }}
+                      onClick={() =>
+                        handleReview([
+                          message,
+                          sign1Id,
+                          sign1Status,
+                          sign2Id,
+                          sign2Status,
+                          id,
+                          digitalSignature
+                        ])
+                      }
+                    >
+                      Review Agreement
+                    </button>
+                  )}
+                {transactionHash && (
+                  <a
+                    href={"https://ropsten.etherscan.io/tx/" + transactionHash}
+                    target="_blank"
+                  >
+                    click to view digital signature
+                  </a>
+                )}
+              </p>
+            )}
 
             <p
               style={{

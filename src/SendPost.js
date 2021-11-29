@@ -42,7 +42,8 @@ const SendPost = ({ currentUserName, currentUserProfilePic }) => {
       null,
       null,
       null,
-      null
+      null,
+      false
     );
     setImage();
     chosenFile.current.value = "";
@@ -77,7 +78,22 @@ const SendPost = ({ currentUserName, currentUserProfilePic }) => {
       <div className="inputIcon">
         <input type="file" ref={chosenFile} onChange={handleChange} />
         {chosenFile.current.value !== "" && (
-          <button onClick={cancelImage}>Cancel Image Chosen</button>
+          <button
+            style={{
+              backgroundColor: "white",
+              fontFamily: "Arial",
+              color: "#3a3a3c",
+              width: "120px",
+              fontSize: "10px",
+              borderRadius: "4px",
+              paddingBottom: "0.5px",
+              paddingTop: "0.5px",
+              boxShadow: "0px 0.5px 1px #505050"
+            }}
+            onClick={cancelImage}
+          >
+            Cancel Image Chosen
+          </button>
         )}
       </div>
     </div>

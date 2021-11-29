@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import Post from "./Post";
 import ChangeUser from "./ChangeUser";
+import collectionName from "./collectionName";
 
 function App() {
   const [users] = useState(usersData);
@@ -24,7 +25,7 @@ function App() {
 
   // get  real-time db from firestore - https://cloud.google.com/firestore/docs/query-data/listen
   useEffect(() => {
-    const q = query(collection(db, "demo"), orderBy("timestamp"));
+    const q = query(collection(db, collectionName), orderBy("timestamp"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       setPosts(
         querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
