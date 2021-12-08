@@ -74,6 +74,13 @@ const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
     console.log("handle review " + agreement);
   };
 
+  const addZero = (i) => {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+  };
+
   const handleDisplayDateTime = (ts) => {
     displayDateTime = new Date(ts?.toDate());
     return (
@@ -81,9 +88,9 @@ const Post = ({ posts, users, currentUserName, currentUserProfilePic }) => {
       " " +
       months[displayDateTime.getMonth()] +
       " " +
-      displayDateTime.getHours() +
+      addZero(displayDateTime.getHours()) +
       ":" +
-      displayDateTime.getMinutes()
+      addZero(displayDateTime.getMinutes())
     );
   };
 

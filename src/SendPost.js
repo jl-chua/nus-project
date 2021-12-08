@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { BsImage } from "react-icons/bs";
+import { RiSendPlane2Fill } from "react-icons/ri";
 import db from "./firebase";
 import storage from "./firebase";
 import {
@@ -70,6 +71,10 @@ const SendPost = ({ currentUserName, currentUserProfilePic }) => {
           <button style={{ display: "none" }} onClick={sendPost}>
             Post Message
           </button>
+          <RiSendPlane2Fill
+            style={{ height: "30px", width: "30px", color: "#5e5ce6" }}
+            onClick={sendPost}
+          />
         </div>
       </form>
 
